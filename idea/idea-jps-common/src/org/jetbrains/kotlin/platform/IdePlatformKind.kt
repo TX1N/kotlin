@@ -12,7 +12,7 @@ import org.jetbrains.kotlin.extensions.ApplicationExtensionDescriptor
 import org.jetbrains.kotlin.platform.impl.CommonIdePlatformKind
 import org.jetbrains.kotlin.platform.impl.JsIdePlatformKind
 import org.jetbrains.kotlin.platform.impl.JvmIdePlatformKind
-import org.jetbrains.kotlin.platform.impl.TODO_NativeIdePlatformKind
+import org.jetbrains.kotlin.platform.impl.NativeIdePlatformKind
 import org.jetbrains.kotlin.resolve.TargetPlatform
 import org.jetbrains.kotlin.utils.addToStdlib.firstNotNullResult
 
@@ -45,7 +45,7 @@ abstract class IdePlatformKind<Kind : IdePlatformKind<Kind>> {
                 JvmIdePlatformKind,
                 JsIdePlatformKind,
                 CommonIdePlatformKind,
-                TODO_NativeIdePlatformKind // TODO: NativeIdePlatform
+                NativeIdePlatformKind
             )
 
         val ALL_KINDS by lazy {

@@ -7,7 +7,6 @@ package org.jetbrains.kotlin.jps.build.dependeciestxt
 
 import org.jetbrains.jps.model.java.JpsJavaDependencyScope
 import org.jetbrains.jps.model.module.JpsModule
-import org.jetbrains.kotlin.cli.common.arguments.CommonCompilerArguments
 import org.jetbrains.kotlin.cli.common.arguments.K2JSCompilerArguments
 import org.jetbrains.kotlin.cli.common.arguments.K2JVMCompilerArguments
 import org.jetbrains.kotlin.cli.common.arguments.K2MetadataCompilerArguments
@@ -16,7 +15,7 @@ import org.jetbrains.kotlin.config.KotlinFacetSettings
 import org.jetbrains.kotlin.config.KotlinModuleKind.COMPILATION_AND_SOURCE_SET_HOLDER
 import org.jetbrains.kotlin.config.KotlinModuleKind.SOURCE_SET_HOLDER
 import org.jetbrains.kotlin.jps.build.dependeciestxt.ModulesTxt.Dependency.Kind.*
-import org.jetbrains.kotlin.platform.impl.TODO_NativeCompilerArguments
+import org.jetbrains.kotlin.platform.impl.FakeK2NativeCompilerArguments
 import org.jetbrains.kotlin.platform.impl.isCommon
 import org.jetbrains.kotlin.platform.impl.isJvm
 import java.io.File
@@ -257,7 +256,7 @@ class ModulesTxtBuilder {
                 "common" -> settings.compilerArguments = K2MetadataCompilerArguments()
                 "jvm" -> settings.compilerArguments = K2JVMCompilerArguments()
                 "js" -> settings.compilerArguments = K2JSCompilerArguments()
-                "native" -> settings.compilerArguments = TODO_NativeCompilerArguments() // TODO: NativeIdePlatformKind
+                "native" -> settings.compilerArguments = FakeK2NativeCompilerArguments()
                 else -> {
                     val flagProperty = ModulesTxt.Module.flags[flag]
                     if (flagProperty != null) flagProperty.set(module, true)
